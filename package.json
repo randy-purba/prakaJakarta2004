@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node ./bin/www",
     "start:deploy": "npm install && pm2 start ./bin/www --name praka-jakarta-app",  
+    "deploy": "gcloud config set project praka-jakarta-app && gcloud config set app/cloud_build_timeout 1600 && gcloud app deploy app.yaml --version=0-0-1",
     "test": "mocha",
     "dev": "nodemon ./bin/www"
   },
