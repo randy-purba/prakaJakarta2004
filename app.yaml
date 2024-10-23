@@ -1,0 +1,9 @@
+runtime: nodejs18
+env_variables:
+  NODE_ENV: production
+  JWT_SECRET_APP=nL4fT*7#zM9&gKd1ZyQw3@J0Xp!cVu!r$X2H9Lb
+  MAPS_API_SERVER_KEY=AIzaSyDsDt3FZr5x5_QoXoqROD4oad8gOhorTyE
+  MY_DBN=praka_jakartadb
+  MY_USER=root
+  MY_HOSS=34.126.143.170
+  MY_PASS=/9\'q\xV_b,rEkG[
