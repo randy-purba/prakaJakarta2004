@@ -1,6 +1,6 @@
 runtime: nodejs18
 env_variables:
-  NODE_ENV: production
+  NODE_ENV: dev
   JWT_SECRET_APP=nL4fT*7#zM9&gKd1ZyQw3@J0Xp!cVu!r$X2H9Lb
   MAPS_API_SERVER_KEY=AIzaSyDsDt3FZr5x5_QoXoqROD4oad8gOhorTyE
   MY_DBN=praka_jakartadb

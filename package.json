@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./bin/www",
-    "start:deploy": "npm install && pm2 start ./bin/www --name praka-jakarta-app",  
-    "deploy": "gcloud config set project praka-jakarta-app && gcloud config set app/cloud_build_timeout 1600 && gcloud app deploy app.yaml --version=0-0-1",
+    "start:deploy": "npm install && pm2 start ./bin/www --name praka-jakarta-app",
+    "deploy": "gcloud config set project praka-jakarta-2024 && gcloud config set app/cloud_build_timeout 1600 && gcloud app deploy app.yaml --no-cache --version=2-0-3",
     "test": "mocha",
     "dev": "nodemon ./bin/www"
   },

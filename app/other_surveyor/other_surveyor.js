@@ -130,12 +130,12 @@ module.exports = {
     cekStatus: async (appObj) => {
         try {
             const { oldToken } = appObj
-            const findOld = await OtherSurveyorToken.find({
+            const findOld = await OtherSurveyorToken.findOne({
                 where: {
                     jwtToken: oldToken
                 }
             })
-            const findNew = await OtherSurveyorToken.find({
+            const findNew = await OtherSurveyorToken.findOne({
                 where: {
                     OtherSurveyorId: findOld.OtherSurveyorId
                 },

@@ -352,7 +352,7 @@ module.exports = {
     cekStatus: async (dashboardObj) => {
         try {
             const { oldToken } = dashboardObj
-            const findOld = await DashboardToken.find({
+            const findOld = await DashboardToken.findOne({
                 where: {
                     jwtToken: oldToken
                 }
@@ -360,7 +360,7 @@ module.exports = {
             if(!findOld) {
                 return { code: 400, data: "Invalid Token" }
             }
-            const findNew = await DashboardToken.find({
+            const findNew = await DashboardToken.findOne({
                 where: {
                     DashboardUserId: findOld.DashboardUserId
                 },
