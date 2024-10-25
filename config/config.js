@@ -18,10 +18,10 @@ module.exports = {
       username: process.env.MY_USER,
       password: process.env.MY_PASS,
       database: process.env.MY_DBN,
-      host:  process.env.MY_HOST,
+      host:  `/cloudsql/${process.env.INSTANCE_CONNECTION_NAME}`,
       dialect: 'mysql',
       dialectOptions: {
-        socketPath: `/cloudsql/praka-jakarta-2024:asia-southeast1:praka-jakarta-2024`,
+        socketPath: `/cloudsql/${process.env.INSTANCE_CONNECTION_NAME}`,
       },
     },
   }
