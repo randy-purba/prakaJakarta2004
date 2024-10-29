@@ -3,6 +3,7 @@ const models = require('../../config/models')
 const generatedId = require('../../lib/idGenerator')    
 const jwtToken = require('../../lib/jwtGenerator')
 const moment = require('moment')
+const { Op } = require('sequelize')
 
 const { DashboardUser, sequelize, Role, DashboardToken, Wilayah, Kabupaten, Dapil, AppToken, AppUser, Report } = models
 
@@ -100,10 +101,10 @@ module.exports = {
 
             if (afterId) {
                 sequelizeQuery.where = {
-                    id : { $lt: afterId },
+                    id : { [Op.lt]: afterId },
                 }
                 if(order=='ASC'){
-                    sequelizeQuery.where.id = { $gt: afterId }
+                    sequelizeQuery.where.id = { [Op.gt]: afterId }
                 } 
             }
 
@@ -147,28 +148,28 @@ module.exports = {
             }
             if (afterId) {
                 sequelizeQuery.where = sequelizeQuery.where = Object.assign(sequelizeQuery.where, {
-                    id : { $lt: afterId },
+                    id : { [Op.lt]: afterId },
                 })
                 if(order=='ASC'){
-                    sequelizeQuery.where.id = sequelizeQuery.where = Object.assign(sequelizeQuery.where, { $gt: afterId } )
+                    sequelizeQuery.where.id = sequelizeQuery.where = Object.assign(sequelizeQuery.where, { [Op.gt]: afterId } )
                 } 
             }
             
             if (filterbydate) {
                 if(filterbydate === 'Day') {
                     sequelizeQuery.where = Object.assign(sequelizeQuery.where, { createdAt: {
-                        $gt: moment().startOf('day'),
-                        $lt: moment().endOf('day')
+                        [Op.gt]: moment().startOf('day'),
+                        [Op.lt]: moment().endOf('day')
                     } } )
                 } else if (filterbydate === 'Week') {
                     sequelizeQuery.where = Object.assign(sequelizeQuery.where, { createdAt: {
-                        $gt: moment().startOf('week'),
-                        $lt: moment().endOf('week')
+                        [Op.gt]: moment().startOf('week'),
+                        [Op.lt]: moment().endOf('week')
                     } } )
                 } else if (filterbydate === 'Month') {
                     sequelizeQuery.where = Object.assign(sequelizeQuery.where, { createdAt: {
-                        $gt: moment().startOf('month'),
-                        $lt: moment().endOf('month')
+                        [Op.gt]: moment().startOf('month'),
+                        [Op.lt]: moment().endOf('month')
                     } } )
                 }
             }
@@ -221,7 +222,7 @@ module.exports = {
                 sequelizeQuery.limit = [(pageNum-1) * lim || 0, lim] 
             }
             if(searchbyname) {
-                sequelizeQuery.where = Object.assign(sequelizeQuery.where, { name: { $like: `%${searchbyname}%` } } )
+                sequelizeQuery.where = Object.assign(sequelizeQuery.where, { name: { [Op.like]: `%${searchbyname}%` } } )
             }
             if(filterbywilayah) {
                 sequelizeQuery.where = Object.assign(sequelizeQuery.where, { WilayahId: filterbywilayah } )

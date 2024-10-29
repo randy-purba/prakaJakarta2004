@@ -139,10 +139,10 @@ module.exports = {
                 sequelizeQuery.where = Object.assign(sequelizeQuery.where, { CoordinatorId: dashboard.id } )
             }
             if(searchbyname) {
-                sequelizeQuery.where = Object.assign(sequelizeQuery.where, { name: { $like: `%${searchbyname}%` } } )
+                sequelizeQuery.where = Object.assign(sequelizeQuery.where, { name: { [Op.like]: `%${searchbyname}%` } } )
             }
             if(searchbycoordinator) {
-                sequelizeQuery.where = Object.assign(sequelizeQuery.where, { '$DashboardUser.name$': { $like: `%${searchbycoordinator}%` } } )
+                sequelizeQuery.where = Object.assign(sequelizeQuery.where, { '$DashboardUser.name$': { [Op.like]: `%${searchbycoordinator}%` } } )
             }
             if(filterbycoordinator) {
                 sequelizeQuery.where = Object.assign(sequelizeQuery.where, { CoordinatorId : filterbycoordinator } )
