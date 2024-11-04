@@ -6,6 +6,7 @@ module.exports = {
       host: "localhost",
       dialect: 'mysql',
       logging: true,
+      timezone: '+07:00', 
     },
     test: {
       username: process.env.MY_USER,
@@ -23,6 +24,8 @@ module.exports = {
       dialectOptions: {
         socketPath: `/cloudsql/${process.env.INSTANCE_CONNECTION_NAME}`,
       },
+      logging: true,
+      timezone: '+07:00', 
     },
   }
   
