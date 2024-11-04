@@ -211,7 +211,7 @@ module.exports = {
                   { model: Dapil }
                 ],
                 where: { 
-                    RoleId: { $ne: 'jmkt41ot' }
+                    RoleId: { [Op.ne]: 'jmkt41ot' }
                 },
                 order: [
                   [sortby || 'id' , order || 'DESC']

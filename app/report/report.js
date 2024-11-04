@@ -117,7 +117,7 @@ module.exports = {
 
             const dashboardUser = await DashboardUser.findByPk(DashboardUserId)
             if(dashboardUser.RoleId != 'jmkt41ot') {
-                sequelizeQuery.where = Object.assign(sequelizeQuery.where, { '$AppUser.CoordinatorId$': { $eq: dashboardUser.id } } )
+                sequelizeQuery.where = Object.assign(sequelizeQuery.where, { '$AppUser.CoordinatorId$': { [Op.eq]: dashboardUser.id } } )
             }
 
             if (filterbydate) {
