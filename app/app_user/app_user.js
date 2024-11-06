@@ -22,12 +22,12 @@ module.exports = {
 
             let queries = `SELECT A.name AS Nama_Surveyor, D.name AS Nama_Koordinator, W.name AS Wilayah, 
                             K.name AS Kabupaten, DA.name AS Dapil,
-                            (SELECT COUNT(*) FROM praka-jakarta-db.Reports where AppUserId = A.id
+                            (SELECT COUNT(*) FROM Reports where AppUserId = A.id
                             AND createdAt >= '${first}' AND createdAt <= '${last}') AS Total_Marker 
-                            FROM praka-jakarta-db.AppUsers AS A INNER JOIN praka-jakarta-db.DashboardUsers AS D 
-                            ON A.CoordinatorId = D.id INNER JOIN praka-jakarta-db.Wilayahs AS W 
-                            ON D.WilayahId = W.id INNER JOIN praka-jakarta-db.Kabupatens AS K
-                            ON D.KabupatenId = K.id INNER JOIN praka-jakarta-db.Dapils AS DA
+                            FROM AppUsers AS A INNER JOIN DashboardUsers AS D 
+                            ON A.CoordinatorId = D.id INNER JOIN Wilayahs AS W 
+                            ON D.WilayahId = W.id INNER JOIN Kabupatens AS K
+                            ON D.KabupatenId = K.id INNER JOIN Dapils AS DA
                             ON D.DapilId = DA.id WHERE A.CoordinatorId = '${koordinatorId}'`
             let result = await sequelize.query(queries , { type: sequelize.QueryTypes.SELECT } )                            
 
@@ -58,12 +58,12 @@ module.exports = {
 
             let queries = `SELECT A.name AS Nama_Surveyor, D.name AS Nama_Koordinator, W.name AS Wilayah, 
                             K.name AS Kabupaten, DA.name AS Dapil,
-                            (SELECT COUNT(*) FROM praka-jakarta-db.Reports where AppUserId = A.id
+                            (SELECT COUNT(*) FROM Reports where AppUserId = A.id
                             AND createdAt >= '${first}' AND createdAt <= '${last}') AS Total_Marker 
-                            FROM praka-jakarta-db.AppUsers AS A INNER JOIN praka-jakarta-db.DashboardUsers AS D 
-                            ON A.CoordinatorId = D.id INNER JOIN praka-jakarta-db.Wilayahs AS W 
-                            ON D.WilayahId = W.id INNER JOIN praka-jakarta-db.Kabupatens AS K
-                            ON D.KabupatenId = K.id INNER JOIN praka-jakarta-db.Dapils AS DA
+                            FROM AppUsers AS A INNER JOIN DashboardUsers AS D 
+                            ON A.CoordinatorId = D.id INNER JOIN Wilayahs AS W 
+                            ON D.WilayahId = W.id INNER JOIN Kabupatens AS K
+                            ON D.KabupatenId = K.id INNER JOIN Dapils AS DA
                             ON D.DapilId = DA.id`
             let result = await sequelize.query(queries , { type: sequelize.QueryTypes.SELECT } )                            
 
