@@ -11,7 +11,7 @@ const { Report, DashboardUser, AppUser, sequelize, Wilayah } = models
 module.exports = {
     getAllReport: async (reportObj) => {
         try {
-            let queries = `SELECT COUNT(*) AS data FROM praka_jakartadb.Reports`
+            let queries = `SELECT COUNT(*) AS data FROM praka-jakarta-db.Reports`
             let reports = await sequelize.query(queries , { type: sequelize.QueryTypes.SELECT } )
             return { code: 200, data: reports[0].data }
         } catch (e) {
@@ -20,7 +20,7 @@ module.exports = {
     },
     getReportToday: async (reportObj) => {
         try {
-            let queries = `SELECT COUNT(*) AS data FROM praka_jakartadb.Reports WHERE createdAt >= CURDATE()`
+            let queries = `SELECT COUNT(*) AS data FROM praka-jakarta-db.Reports WHERE createdAt >= CURDATE()`
             let reports = await sequelize.query(queries , { type: sequelize.QueryTypes.SELECT } )
 
             return { code: 200, data: reports[0].data }
